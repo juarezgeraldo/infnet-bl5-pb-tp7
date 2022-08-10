@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Calculo Salario</string>
+    <string name="hintTxtSalarioBruto">Informe valor do salário bruto</string>
+    <string name="lblSalarioBruto">Salário Bruto</string>
+    <string name="LblInformacoes">Informe os dados solicitados abaixo e click no botão calcular</string>
+    <string name="lblTitulo">Cálculo de Salário</string>
+    <string name="lblDependentes">Número Dependentes</string>
+    <string name="hintTxtDependentes">Número de dependentes</string>
+    <string name="lblPensao">Pensão</string>
+    <string name="hintTxtPensao">Informe valor da pensão</string>
+    <string name="lblPlanoSaude">Plano Saúde</string>
+    <string name="hintTxtPlanoSaude">Informe valor plano de saúde</string>
+    <string name="lblOutros">Outros Desecontos</string>
+    <string name="hintTxtOutros">Informe valor para outros descontos</string>
+    <string name="hintBtnCaluclar">Pressione para calcular o salário</string>
+    <string name="textoBtnCaluclar">Calcular Salário</string>
+    <string name="hintLblInformacoesResultado">Com base nas informações inseridas o salário calculado é:</string>
+    <string name="hintLblSlarioLiquido">Saláio líquido calculado</string>
+    <string name="lblSalarioLiquido">Salário Líquido</string>
+    <string name="hintTxtSalarioLiquido">Valor do salário líquido</string>
+    <string name="hintLblDesconto">Total de descontos</string>
+    <string name="lblDesconto">Total Descontos</string>
+    <string name="hintTxtDesconto">Valor do total de descontos</string>
+    <string name="hintLblPercentual">Percentual de descontos</string>
+    <string name="lblPercentual">Percentual Descontos</string>
+    <string name="hintTxtPercentual">Índice percentual de descontos</string>
+    <string name="hintBtnVoltar">Voltar à tela anterior</string>
+    <string name="btnVoltar">Voltar</string>
+    <string name="hintbtnApagar">Exlui arquivo de salários</string>
+    <string name="btnApagar">Apagar Arquivo</string>
+</resources>
