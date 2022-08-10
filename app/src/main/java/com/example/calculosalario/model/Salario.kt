@@ -28,32 +28,6 @@ class Salario {
         pensao: Double,
         planoSaude: Double,
         outros: Double,
-        salarioLiquido: Double,
-        desconto: Double,
-        percentual: Double,
-        inss: Double,
-        irpf: Double
-    ) {
-        this.salarioBruto = salarioBruto
-        this.dependentes = dependentes
-        this.pensao = pensao
-        this.planoSaude = planoSaude
-        this.outros = outros
-        this.salarioLiquido = salarioLiquido
-        this.desconto = desconto
-        this.percentual = percentual
-        this.inss = inss
-        this.irpf = irpf
-        this.dataAtual = dateFormat.format(Date())
-        this.horaAtual = horaFormat.format(Date())
-    }
-
-    constructor(
-        salarioBruto: Double,
-        dependentes: Int,
-        pensao: Double,
-        planoSaude: Double,
-        outros: Double,
     ) {
         this.salarioBruto = salarioBruto
         this.dependentes = dependentes
@@ -72,7 +46,6 @@ class Salario {
     fun getPercentual(): String{
         return this.percentual.toString()
     }
-
 
     override fun toString(): String {
         return "Salario(salarioBruto=$salarioBruto, dependentes=$dependentes, pensao=$pensao, planoSaude=$planoSaude, outros=$outros, salarioLiquido=$salarioLiquido, desconto=$desconto, percentual=$percentual, inss=$inss, irpf=$irpf, dataAtual='$dataAtual', horaAtual='$horaAtual')"
@@ -94,7 +67,7 @@ class Salario {
         this.dataAtual = dateFormat.format(Date())
         this.horaAtual = horaFormat.format(Date())
 
-        return this.toString()
+        return this.toString() + "\n"
     }
 
     private fun calculaInss(valor: Double): Double {

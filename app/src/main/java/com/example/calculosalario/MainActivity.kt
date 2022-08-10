@@ -1,17 +1,26 @@
 package com.example.calculosalario
 
+import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.Environment
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.calculosalario.model.Salario
-import java.io.FileOutputStream
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
     var salario = Salario()
 
+    val EXTERNAL_STORAGE_PERMISSION_CODE = 100
+
+    val filename = "resultado.txt"
+
+    @SuppressLint("SdCardPath")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,6 +33,19 @@ class MainActivity : AppCompatActivity() {
 
         val btnCalcular = this.findViewById<Button>(R.id.btnCaluclar)
         val btnApagar = this.findViewById<Button>(R.id.btnApagar)
+
+        btnApagar.setOnClickListener() {
+            val f = File("/data/user/0/com.example.calculosalario/files/" + filename)
+            if (f.exists()) {
+                if (f.delete()) {
+                    Toast.makeText(this, "Arquivo excluído com sucesso", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(this, "Arquivo NÃO pode ser excluído", Toast.LENGTH_LONG).show()
+                }
+            } else {
+                Toast.makeText(this, "Arquivo NÃO existe, portanto não foi excluído", Toast.LENGTH_LONG).show()
+            }
+        }
 
         btnCalcular.setOnClickListener() {
             if (!verificaValorOk(txtSalarioBruto.text.toString())) {
@@ -57,9 +79,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun gravaRegistro() {
-        val fos: FileOutputStream = this.openFileOutput("resultados.txt", MODE_PRIVATE)
-        fos.write(salario.montaRegistro().toByteArray())
-        fos.close()
+        if (this.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            this.requestPermissions(
+                arrayOf(
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ),
+                EXTERNAL_STORAGE_PERMISSION_CODE
+            )
+        } else {
+            if (isExternalStorageWritable()) {
+                val fileOutputStream = openFileOutput(filename, MODE_APPEND)
+                fileOutputStream.write(salario.montaRegistro().toByteArray())
+                fileOutputStream.close()
+            }
+        }
     }
 
     private fun verificaValorOk(valor: String): Boolean {
@@ -83,12 +117,35 @@ class MainActivity : AppCompatActivity() {
         return valor.toInt()
     }
 
-//    private fun isExternalStorageWritable(): Boolean {
-//        return Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED
-//    }
-//
-//    private fun isExternalStorageReadable(): Boolean {
-//        return Environment.getExternalStorageState() in
-//                setOf(Environment.MEDIA_MOUNTED, Environment.MEDIA_MOUNTED_READ_ONLY)
-//    }
+    private fun isExternalStorageWritable(): Boolean {
+        return Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == EXTERNAL_STORAGE_PERMISSION_CODE) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(
+                    this,
+                    "Acesso de gravação na memório externa concedida",
+                    Toast.LENGTH_LONG
+                ).show()
+                if (isExternalStorageWritable()) {
+                    if (isExternalStorageWritable()) {
+                        val fileOutputStream = openFileOutput(filename, MODE_APPEND)
+                        fileOutputStream.write(salario.montaRegistro().toByteArray())
+                        fileOutputStream.close()
+                    }
+                } else {
+                    Toast.makeText(this, "Acesso de gravação na memório externa", Toast.LENGTH_LONG)
+                        .show()
+                }
+            }
+        }
+
+    }
 }
