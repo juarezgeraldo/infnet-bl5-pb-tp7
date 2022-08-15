@@ -2,7 +2,9 @@ package com.example.calculosalario.model
 
 import android.annotation.SuppressLint
 import android.icu.text.SimpleDateFormat
+import android.icu.util.TimeZone
 import java.util.*
+import java.util.TimeZone.*
 
 @SuppressLint("SimpleDateFormat")
 class Salario {
@@ -21,6 +23,8 @@ class Salario {
 
     val dateFormat = SimpleDateFormat("dd/MM/yyyy")
     val horaFormat = SimpleDateFormat("HH:mm:ss")
+
+    val format: SimpleDateFormat = SimpleDateFormat("HH:mm:ss")
 
     constructor(
         salarioBruto: Double,
@@ -64,9 +68,10 @@ class Salario {
     }
 
     fun montaRegistro(): String {
+        horaFormat.setTimeZone(TimeZone.getTimeZone("America/Sao_Paulo"))
+
         this.dataAtual = dateFormat.format(Date())
         this.horaAtual = horaFormat.format(Date())
-
         return this.toString() + "\n"
     }
 
