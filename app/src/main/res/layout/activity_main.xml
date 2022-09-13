@@ -5,10 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+<!--ca-app-pub-3393018088055719~4490314006-->
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:background="#FF3B3B"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="409dp"
+        android:layout_height="633dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/adView"
+        tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -19,14 +37,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="@string/lblTitulo"
                 android:textSize="34sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/lblInformacoes"
@@ -65,9 +82,12 @@
                         android:id="@+id/txtSalarioBruto"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:autofillHints=""
                         android:ems="10"
                         android:hint="@string/hintTxtSalarioBruto"
-                        android:inputType="numberDecimal" />
+                        android:inputType="numberDecimal"
+                        android:textColorHint="#757575"
+                        tools:ignore="TouchTargetSizeCheck" />
                 </TableRow>
 
                 <TableRow
@@ -84,9 +104,12 @@
                         android:id="@+id/txtDependentes"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:autofillHints=""
                         android:ems="10"
                         android:hint="@string/hintTxtDependentes"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:textColorHint="#757575"
+                        tools:ignore="TouchTargetSizeCheck" />
                 </TableRow>
 
                 <TableRow
@@ -103,9 +126,12 @@
                         android:id="@+id/txtPensao"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:autofillHints=""
                         android:ems="10"
                         android:hint="@string/hintTxtPensao"
-                        android:inputType="numberDecimal" />
+                        android:inputType="numberDecimal"
+                        android:textColorHint="#757575"
+                        tools:ignore="TouchTargetSizeCheck" />
                 </TableRow>
 
                 <TableRow
@@ -122,9 +148,12 @@
                         android:id="@+id/txtPlanoSaude"
                         android:layout_width="268dp"
                         android:layout_height="wrap_content"
+                        android:autofillHints=""
                         android:ems="10"
                         android:hint="@string/hintTxtPlanoSaude"
-                        android:inputType="numberDecimal" />
+                        android:inputType="numberDecimal"
+                        android:textColorHint="#757575"
+                        tools:ignore="TouchTargetSizeCheck" />
 
                 </TableRow>
 
@@ -142,9 +171,12 @@
                         android:id="@+id/txtOutros"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:autofillHints=""
                         android:ems="10"
                         android:hint="@string/hintTxtOutros"
-                        android:inputType="numberDecimal" />
+                        android:inputType="numberDecimal"
+                        android:textColorHint="#757575"
+                        tools:ignore="TouchTargetSizeCheck" />
                 </TableRow>
 
             </TableLayout>

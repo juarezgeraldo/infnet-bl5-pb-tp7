@@ -11,7 +11,9 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.calculosalario.model.Salario
+import com.google.android.gms.ads.*
 import java.io.File
+
 
 class MainActivity : AppCompatActivity() {
     var salario = Salario()
@@ -19,11 +21,24 @@ class MainActivity : AppCompatActivity() {
     val EXTERNAL_STORAGE_PERMISSION_CODE = 100
 
     val filename = "resultado.txt"
+    lateinit var mAdView : AdView
 
-    @SuppressLint("SdCardPath")
+    @SuppressLint("SdCardPath", "CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        MobileAds.initialize(this) {}
+
+        val adView = AdView(this)
+        adView.setAdSize(AdSize.BANNER)
+        adView.adUnitId = "ca-app-pub-3940256099942544/6300978111"
+
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+
+        mAdView = findViewById<AdView>(R.id.adView)
+        mAdView.loadAd(adRequest)
 
         val txtSalarioBruto = this.findViewById<EditText>(R.id.txtSalarioBruto)
         val txtDependentes = this.findViewById<EditText>(R.id.txtDependentes)
@@ -75,7 +90,34 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
+        mAdView.adListener = object: AdListener() {
+            override fun onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+            }
 
+            override fun onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+
+            override fun onAdFailedToLoad(adError : LoadAdError) {
+                // Code to be executed when an ad request fails.
+            }
+
+            override fun onAdImpression() {
+                // Code to be executed when an impression is recorded
+                // for an ad.
+            }
+
+            override fun onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+            }
+
+            override fun onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+        }
     }
 
     private fun gravaRegistro() {
