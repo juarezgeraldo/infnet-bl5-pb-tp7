@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Calculo Salario</string>
+    <string name="app_name">Cálculo Salário</string>
     <string name="hintTxtSalarioBruto">Informe valor do salário bruto</string>
     <string name="lblSalarioBruto">Salário Bruto</string>
     <string name="LblInformacoes">Informe os dados solicitados abaixo e click no botão calcular</string>
