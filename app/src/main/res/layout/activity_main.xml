@@ -6,27 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 <!--ca-app-pub-3393018088055719~4490314006-->
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:background="#FF3B3B"
-        app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="409dp"
-        android:layout_height="633dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/adView"
-        tools:ignore="MissingConstraints">
+        android:layout_height="491dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -59,11 +47,11 @@
 
             <TableLayout
                 android:id="@+id/tableLayout"
-                android:layout_width="0dp"
-                android:layout_height="229dp"
-                android:layout_marginStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="237dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lblInformacoes">
@@ -80,7 +68,7 @@
 
                     <EditText
                         android:id="@+id/txtSalarioBruto"
-                        android:layout_width="wrap_content"
+                        android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:autofillHints=""
                         android:ems="10"
@@ -96,13 +84,13 @@
 
                     <TextView
                         android:id="@+id/lblDependentes"
-                        android:layout_width="wrap_content"
+                        android:layout_width="146dp"
                         android:layout_height="wrap_content"
                         android:text="@string/lblDependentes" />
 
                     <EditText
                         android:id="@+id/txtDependentes"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:autofillHints=""
                         android:ems="10"
@@ -131,7 +119,7 @@
                         android:hint="@string/hintTxtPensao"
                         android:inputType="numberDecimal"
                         android:textColorHint="#757575"
-                        tools:ignore="TouchTargetSizeCheck" />
+                        tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
                 </TableRow>
 
                 <TableRow
@@ -146,7 +134,7 @@
 
                     <EditText
                         android:id="@+id/txtPlanoSaude"
-                        android:layout_width="268dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:autofillHints=""
                         android:ems="10"
@@ -204,5 +192,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#FF3B3B"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

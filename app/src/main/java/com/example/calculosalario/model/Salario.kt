@@ -52,7 +52,7 @@ class Salario {
     }
 
     override fun toString(): String {
-        return "Salario(salarioBruto=$salarioBruto, dependentes=$dependentes, pensao=$pensao, planoSaude=$planoSaude, outros=$outros, salarioLiquido=$salarioLiquido, desconto=$desconto, percentual=$percentual, inss=$inss, irpf=$irpf, dataAtual='$dataAtual', horaAtual='$horaAtual')"
+        return "Salario(salarioBruto=$salarioBruto,\ndependentes=$dependentes,\npensao=$pensao,\nplanoSaude=$planoSaude,\noutros=$outros,\nsalarioLiquido=$salarioLiquido,\ndesconto=$desconto,\npercentual=$percentual,\ninss=$inss,\nirpf=$irpf,\ndataAtual='$dataAtual',\nhoraAtual='$horaAtual')"
     }
 
     fun calculaSalario(salario: Salario): Boolean {

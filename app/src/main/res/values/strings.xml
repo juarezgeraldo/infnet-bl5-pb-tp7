@@ -1,17 +1,17 @@
 <resources>
     <string name="app_name">Cálculo Salário</string>
-    <string name="hintTxtSalarioBruto">Informe valor do salário bruto</string>
+    <string name="hintTxtSalarioBruto">Salário bruto</string>
     <string name="lblSalarioBruto">Salário Bruto</string>
     <string name="LblInformacoes">Informe os dados solicitados abaixo e click no botão calcular</string>
     <string name="lblTitulo">Cálculo de Salário</string>
     <string name="lblDependentes">Número Dependentes</string>
-    <string name="hintTxtDependentes">Número de dependentes</string>
+    <string name="hintTxtDependentes">Dependentes</string>
     <string name="lblPensao">Pensão</string>
-    <string name="hintTxtPensao">Informe valor da pensão</string>
+    <string name="hintTxtPensao">Pensão</string>
     <string name="lblPlanoSaude">Plano Saúde</string>
-    <string name="hintTxtPlanoSaude">Informe valor plano de saúde</string>
+    <string name="hintTxtPlanoSaude">Plano de saúde</string>
     <string name="lblOutros">Outros Desecontos</string>
-    <string name="hintTxtOutros">Informe valor para outros descontos</string>
+    <string name="hintTxtOutros">Outros descontos</string>
     <string name="hintBtnCaluclar">Pressione para calcular o salário</string>
     <string name="textoBtnCaluclar">Calcular Salário</string>
     <string name="hintLblInformacoesResultado">Com base nas informações inseridas o salário calculado é:</string>
